@@ -466,9 +466,9 @@
       const CONFIG = {
         mpVersion: "0.4.1646424915",
         cameraSize: { w: 1280, h: 720 },
-        discSpeed: 0.15,
-        magnetRadius: 0.15, // Normalized screen space (0-1)
-        shootCooldown: 15, // Frames
+        discSpeed: 0.05,
+        magnetRadius: 0.25, // Normalized screen space (0-1)
+        shootCooldown: 10, // Frames
       };
 
       const STATE = {
@@ -580,13 +580,13 @@
           startY = spread;
         }
 
-        disc.position.set(startX, startY, -15); // Start deep in Z
+        disc.position.set(startX, startY, -30); // Start much farther back
 
         // Random erratic movement data
         disc.userData = {
           velocity: new THREE.Vector3(-startX, -startY, 0)
             .normalize()
-            .multiplyScalar(CONFIG.discSpeed),
+            .multiplyScalar(CONFIG.discSpeed * 0.5), // Move slower toward center
           wobble: Math.random() * Math.PI,
           active: true,
         };
@@ -668,7 +668,7 @@
         document.getElementById("game-over").classList.remove("show");
 
         // Spawn initial enemies
-        for (let i = 0; i < 4; i++) createEnemy();
+        for (let i = 0; i < 2; i++) createEnemy();
       }
 
       // Sound Synthesis (No assets needed)
@@ -789,7 +789,7 @@
             setTimeout(() => document.getElementById("loader").remove(), 500);
             STATE.isPlaying = true;
             // Initial Spawn
-            for (let i = 0; i < 4; i++) createEnemy();
+            for (let i = 0; i < 2; i++) createEnemy();
           };
 
           // Setup restart button
@@ -962,7 +962,7 @@
         }
 
         // Maintain Enemy Count
-        while (enemies.length < 4) {
+        while (enemies.length < 2) {
           createEnemy();
         }
 

@@ -8,8 +8,8 @@ A browser-based Augmented Reality shooter that turns your hand into a controller
 * **Shoot:** Close your thumb (like a hammer striking) to fire.
 * **The Goal:** Destroy the red discs before they fly past you. The game features **Magnetic Aim Assist**, so if your crosshair turns red, you are locked on!
 
-##  How to Run
-Because this uses the webcam, modern browsers require a secure context (HTTPS) or localhost.
+## How to Run 
+Because this game uses the webcam, modern browsers require a secure context (HTTPS) or localhost.
 
 1.  **Download:** Save the code as `index.html`.
 2.  **Local Server (Recommended):**
